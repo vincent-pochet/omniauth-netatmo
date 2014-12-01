@@ -1,4 +1,4 @@
-# OmniAuth Netatmo
+# OmniAuth Netatmo &nbsp;[![Build Status](https://travis-ci.org/vincent-pochet/omniauth-netatmo.svg)](https://travis-ci.org/vincent-pochet/omniauth-netatmo)
 
 This gem contains the [Natatmo](https://www.netatmo.com/) strategy for OmniAuth.
 
