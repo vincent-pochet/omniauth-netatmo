@@ -1,6 +1,6 @@
 # OmniAuth Netatmo
 
-This gem contains the Natatmo strategy for OmniAuth.
+This gem contains the [Natatmo](https://www.netatmo.com/) strategy for OmniAuth.
 
 ## Before You Begin
 
@@ -30,15 +30,47 @@ Replace `"API_KEY"` and `"API_SECRET"` with the appropriate values you obtained 
 An example auth hash available in `request.env['omniauth.auth']`:
 
 ```ruby
-
+{
+  :provider => "netatmo",
+  :uid => "123456",
+  :info => {
+    :email => 'foobar@test.com'
+  },
+  :credentials => {
+    :token => "a1b2c3d4...", # The OAuth 2.0 access token
+    :secret => "abcdef1234"
+  },
+  :extra => {
+    :access_token => "", # An OAuth::AccessToken object
+    :raw_info => {
+      "status" => "ok",
+      "body" => {
+        "_id" => "547c1f431e77599d1a7e25dd",
+        "administrative" => {
+          "country" => "FR",
+          "reg_locale" => "fr",
+          "lang" => "fr",
+          "unit" => 0,
+          "windunit" => 0,
+          "pressureunit" => 0,
+          "feel_like_algo" => 0
+        },
+        "date_creation" => {
+          "sec" => 1417420611,
+          "usec" => 0
+        },
+        "mail" => "vincent@ruby42.com"
+      },
+      "time_exec" => 0.084523916244507,
+      "time_server" => 1417421657
+    }
+  }
+}
 ```
 
 ## Supported Rubies
 
-OmniAuth Twitter is tested under 1.9.3, 2.0.0, 2.1.0, JRuby, and Rubinius.
-
-## Contributing
-
+OmniAuth Netatmo is tested under 1.9.3, 2.0.0, 2.1.0, JRuby, and Rubinius.
 
 ## License
 

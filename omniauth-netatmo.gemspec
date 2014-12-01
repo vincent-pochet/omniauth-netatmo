@@ -1,6 +1,5 @@
 # -*- encoding: utf-8 -*-
-$:.push File.expand_path("../lib", __FILE__)
-require "omniauth/netatmo/version"
+require File.expand_path('../lib/omniauth/netatmo/version', __FILE__)
 
 Gem::Specification.new do |s|
   s.name        = "omniauth-netatmo"
@@ -16,8 +15,9 @@ Gem::Specification.new do |s|
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 
-  s.add_dependency 'multi_json', '~> 1.3'
-  s.add_runtime_dependency 'omniauth-oauth', '~> 1.0'
+  s.add_dependency 'omniauth', '~> 1.0'
+  s.add_dependency 'omniauth-oauth2', '~> 1.1'
+  s.add_development_dependency 'rake', '~> 10.4.0'
   s.add_development_dependency 'rspec', '~> 2.7'
   s.add_development_dependency 'rack-test'
   s.add_development_dependency 'simplecov'
