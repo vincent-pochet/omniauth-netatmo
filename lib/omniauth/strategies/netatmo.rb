@@ -5,13 +5,14 @@ module OmniAuth
     class Netatmo < OmniAuth::Strategies::OAuth2
 
       option :client_options, {
-        :site => 'http://api.netatmo.com',
-        :authorize_url => 'http://api.netatmo.net/oauth2/authorize',
-        :token_url => 'http://api.netatmo.net/oauth2/token'
+        :site => 'https://api.netatmo.net/',
+        :authorize_url => 'https://api.netatmo.net/oauth2/authorize',
+        :token_url => 'https://api.netatmo.net/oauth2/token'
       }
 
       option :token_params, {
-        :parse => :query
+        :parse => :json,
+        :grant_type => 'authorization_code'
       }
 
       option :access_token_options, {
@@ -32,10 +33,10 @@ module OmniAuth
         end
       end
 
-      uid { raw_info['_id'] }
+      uid { raw_info['body']['_id'] }
 
       info do
-        { :email => raw_info['email'] }
+        { :email => raw_info['body']['mail'] }
       end
 
       extra do
@@ -43,7 +44,7 @@ module OmniAuth
       end
 
       def raw_info
-        @raw_info ||= access_token.get('/api/getuser').parsed || {}
+        @raw_info ||= access_token.get('/api/getuser', params: { access_token: access_token.token }).parsed
       end
     end
   end
