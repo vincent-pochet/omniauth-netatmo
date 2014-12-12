@@ -45,7 +45,7 @@ An example auth hash available in `request.env['omniauth.auth']`:
     :raw_info => {
       "status" => "ok",
       "body" => {
-        "_id" => "547c1f431e77599d1a7e25dd",
+        "_id" => "ABCDEFGHJK",
         "administrative" => {
           "country" => "FR",
           "reg_locale" => "fr",
@@ -59,7 +59,7 @@ An example auth hash available in `request.env['omniauth.auth']`:
           "sec" => 1417420611,
           "usec" => 0
         },
-        "mail" => "vincent@ruby42.com"
+        "mail" => "foo@bar.com"
       },
       "time_exec" => 0.084523916244507,
       "time_server" => 1417421657
